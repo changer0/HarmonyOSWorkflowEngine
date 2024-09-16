@@ -5,6 +5,8 @@
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    "lib_workflow_engine": "../lib_workflow_engine"
+  }
 }
 

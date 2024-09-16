@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/lemon/.ohos/config/default_WorkflowEngine_v6aU8PS4nptyS150BVydOPgnT_-TPpZgz6FsCjFUqmM=.cer",
+          "storePassword": "0000001A6C37091850DDC19BAF54E5731012EEC3354C5673B2FE4C4B3D23254D9BAFB8B3CF06ECBD7F7C",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A96F976655E52CABC3DCFD35748A741417AC1DE731C273E338A31E483D38F197D8781B86994FE",
+          "profile": "/Users/lemon/.ohos/config/default_WorkflowEngine_v6aU8PS4nptyS150BVydOPgnT_-TPpZgz6FsCjFUqmM=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/lemon/.ohos/config/default_WorkflowEngine_v6aU8PS4nptyS150BVydOPgnT_-TPpZgz6FsCjFUqmM=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
