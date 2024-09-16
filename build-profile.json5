@@ -35,6 +35,10 @@
           ]
         }
       ]
+    },
+    {
+      "name": "lib_workflow_engine",
+      "srcPath": "./lib_workflow_engine",
     }
   ]
 }
