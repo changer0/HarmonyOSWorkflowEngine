@@ -107,15 +107,16 @@ export class WorkflowEngine {
    * 执行工作流
    */
   public async execute() {
+    // 存放准备好的节点
     const readyNodes = new Set<string>();
 
     // 找出所有没有前驱节点的节点，即可立即执行的节点
     for (let entriesElement of this.predecessors.entries()) {
       // 遍历所有前驱节点集合
       let nodeId = entriesElement[0];
-      let pred = entriesElement[1];
+      let preds = entriesElement[1];
       // 如果前驱集合为空，说明没有前驱节点，即可立即执行
-      if (pred.size === 0) {
+      if (preds.size === 0) {
         readyNodes.add(nodeId);
       }
     }
@@ -147,11 +148,11 @@ export class WorkflowEngine {
       return;
     }
     this.log(`正在执行节点 ${node.id}`);
-    // 真实的执行逻辑
     if (!this.nodeExecutor) {
       throw new Error("NodeExecutor is not set!");
       return;
     }
+    // 真正的执行逻辑
     await this.nodeExecutor?.(node);
     // 将节点标记为已完成
     this.completedNodes.add(nodeId);
@@ -167,10 +168,10 @@ export class WorkflowEngine {
     // 处理后继节点，检查它们是否可以执行
     node.next.forEach(nextNodeId => {
       // 获取后继节点的前驱集合
-      const pred = this.predecessors.get(nextNodeId);
+      const preds = this.predecessors.get(nextNodeId);
       // 从前驱集合中移除当前已完成的节点
-      pred?.delete(nodeId);
-      if (pred?.size === 0) {
+      preds?.delete(nodeId);
+      if (preds?.size === 0) {
         // 如果前驱集合为空，说明后继节点的所有前驱都已完成，可以开始执行
         this.executeNode(nextNodeId);
       }

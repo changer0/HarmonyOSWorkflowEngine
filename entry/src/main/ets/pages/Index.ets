@@ -174,8 +174,7 @@ const configJson = `
       "id": "Node11",
       "next": []
     }
-  ],
-  "start": "Node1"
+  ]
 }
 `;
 
